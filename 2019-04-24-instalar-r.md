@@ -1,15 +1,7 @@
----
-title: "¿Cómo instalar R en Mac, Ubuntu y Windows?"
-authors: Mauricio Vargas S. 帕夏
-date: 2019-04-22
-categories: Ciencia de Datos
-tags: ["R", "RStudio", "Mac", "Ubuntu", "Windows"]
-summary: Guía para usuarios principiantes pensada para ahorrarte un dolor de cabeza y tiempo valioso en caso de que necesites instalar R por tu cuenta.
----
+# ¿Cómo instalar R en Mac, Ubuntu y Windows?
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+*2019-04-22*
+*Mauricio Vargas S. 帕夏*
 
 *Este tutorial es una traducción de una adaptación del original que escribí en mi blog en inglés. Los videos también fueron traducidos*
 
@@ -59,185 +51,186 @@ Entre los pasos tres o cuatro, debes escoger uno solo, el que creas que es más 
 
 ## Paso 1: Instalar las Herramientas de Línea de Comandos de XCode
 
-Compiling software on OS X requires [XCode CLT](https://developer.apple.com/download/more/), and installing R requires compiling at some steps so there is no scape from this part. 
+Compilar software en Mac requiere instalar [XCode CLT](https://developer.apple.com/download/more/). Dado que algunos pasos de esta instalación de R requieren compilación, no hay forma de evadir este paso.
 
-Open the Terminal (cmd + space and search 'Terminal') and paste this command:
+Abre la terminal (cmd + espacio y busca 'Terminal'), luego pega el siguiente comando:
 ```
 xcode-select --install
 ```
-Then hit enter and wait a minute. If your computer already has this software you will see a message warning that XCode CLT is already installed, otherwise it will take a moment to automatically download and install the software.
+Presiona enter y espera un minuto. Si tu computador ya tiene este software instalado, verás un mensaje que dice que XCode CLT ya está instalado, en caso contrario comenzará a descargar e instalar el software.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 2: Install Homebrew
+## Paso 2: Instalar Homebrew
 
-In order to install Homebrew paste this command in the terminal:
+Para instalar Homebrew pega el siguiente comando en la terminal:
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-Then hit enter and watch a lot of code and emojis appear on the screen.
+Luego presiona enter y observa los múltiples emojis que aparecen en la pantalla.
 
-Now you would want to configure Homebrew path. You just need to run this just once and then experience the magic. The reason to do this is that this is the way to tell your system where Homebrew software can be found on your hard disk.
+Seguramente vas a querer configurar las rutas de Homebrew. Para hacerlo basta con replicar lo siguiente una vez. La razón para hacer esto es que es la forma de decirle al sistema en que carpeta del disco duro se encuentra el software de Homebrew.
 
-Paste this piece of code in the terminal:
+Pega el siguiente código en la terminal:
 ```
 # Homebrew PATH
-echo "export LC_ALL=en_US.UTF-8" >> ~/.bash_profile
-echo "export LANG=en_US.UTF-8" >> ~/.bash_profile
+echo "export LC_ALL=es_ES.UTF-8" >> ~/.bash_profile
+echo "export LANG=es_ES.UTF-8" >> ~/.bash_profile
 echo "export PATH=/usr/local/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile
 ```
-As you might guess, you need to hit enter after pasting it.
+Como ya habrás adivinado, debes presionar enter luego de pegar esto.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 3: Install R without OpenBLAS
+## Paso 3: Instalar R sin OpenBLAS
 
-We have already installed XCode CLT and Homebrew. So now paste this piece of code in the terminal:
+Ya tenemos XCode CLT y Hombrew instalado. Ahora pega el siguiente código en la terminal:
 ```
 brew install r
 echo 'Sys.setlocale(category="LC_ALL", locale = "en_US.UTF-8")' >> ~/.bash_profile
 ```
-Hit enter and something good will happen.
+Presiona enter y algo bueno sucederá.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=50" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 4: Install R with OpenBLAS
+## Paso 4: Instalar R con OpenBLAS
 
-This is very similar to the last step. Paste this piece of code in the terminal:
+Este paso es muy similar al anterior. Pega el siguiente código en la terminal:
 ```
 brew install openblas
 brew install r --with-openblas
 echo 'Sys.setlocale(category="LC_ALL", locale = "en_US.UTF-8")' >> ~/.bash_profile
 ```
-Hit enter and something good will happen.
+Presiona enter y algo bueno sucederá.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=50" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 5: Install RStudio
+## Paso 5: Instala RStudio
 
-Finally paste this piece of code in the terminal:
+
+Finalmente, pega el siguiente código en la terminal:
 ```
 brew cask install rstudio
 ```
-Hit enter and you'll be ready.
+Presiona enter y estarás listo.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=285" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Instructions for Ubuntu users
+# Instrucciones para usuarios de Ubuntu
 
-## Install R and RStudio
+## Instalar R y RStudio
 
-You should install R with [OpenBLAS](http://www.openblas.net/). In plain terms, OpenBLAS will boost some operations and I want you to be a happy user. You can ignore this advice if you are going to work with relatively small datasets.
+Recomiendo instalar R con [OpenBLAS](http://www.openblas.net/). En palabras simples, OpenBLAS acelera algunas operaciones y quiero que seas un usuario feliz. Puedes ignorar esta recomendación si vas a trabajar con conjuntos de datos relativamente pequeños.
 
-Installing R on Ubuntu is simple, amazingly simple! We can install R, RStudio and the Tidyverse in a super simple way compared to Windows or OS X way.
+Instalar R en Ubuntu es simple, ¡sorprendentemente simple! Podemos instalar R, RStudio y el Tidyverse de manera muy sencilla en comparación a Mac o incluso Windows.
 
-Between steps one or two just choose what you think is more suitable for you. Don't complete step one and then step two or you will waste time as step two will replace all what you did on step one.
+Entre los pasos uno o dos, debes escoger uno solo, el que creas que es más conveniente para ti. No ejecutes el paso uno y luego el dos o vas a perder tiempo dado que el paso dos reemplazará todo lo que hiciste en el paso uno
 
-## Step 1: Install R without OpenBLAS
+## Paso 1: Instalar R sin OpenBLAS
 
-Open the terminal and paste this piece of code:
+Abre la terminal y pega el siguiente código:
 ```
 # R with OpenBLAS
 sudo apt-get install r-base
 ```
-Then press enter.
+Luego presiona enter.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 2: Install R with OpenBLAS
+## Paso 2: Instalar R con OpenBLAS
 
-Open the terminal and paste this piece of code:
+Abre la terminal y pega el siguiente código:
 ```
 # R with OpenBLAS
 sudo apt-get install libopenblas-base r-base
 ```
-Then press enter.
+Luego presiona enter.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 3: Install RStudio
+## Paso 3: Instalar RStudio
 
-Don't leave the terminal and paste this piece of code:
+No cierres la terminal y pega el siguiente código:
 ```
 sudo apt-get install gdebi
 cd ~/Downloads
 wget https://download1.rstudio.org/rstudio-xenial-1.1.379-amd64.deb
 sudo gdebi rstudio-xenial-1.1.379-amd64.deb
 ```
-Then press enter.
+Luego presiona enter.
 
-Another install option is to visit [RStudio](https://www.rstudio.com) to obtain the software and then install it from the desktop without needing commands.
+Otra alternativa es visitar el [sitio web de RStudio](https://www.rstudio.com) para descargar el software a instalarlo desde el escritorio con un instalador gráfico.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=320" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Instructions for Windows users
+# Instrucciones para usuarios de Windows
 
-## Install R and RStudio
+## Instalar R y RStudio
 
-My experience with Windows and R went from tragic to amazing. What made my R and Windows experience amazing was [Microsoft R Open](https://mran.microsoft.com/open) that is an R instance that comes with [Intel MKL](https://software.intel.com/en-us/mkl), a numerical library that increases speed for some operations, enabled by default.
+Mi experiencia con Windows y R cambió de trágica a magnífica. Lo que cambió esa experiencia fue [Microsoft R Open](https://mran.microsoft.com/open) que es una versión de R que incluye [Intel MKL](https://software.intel.com/en-us/mkl), una librería numérica que aumenta la velocidad de algunas operaciones y que viene activada por defecto,
 
-In any case you can always install Stock R. Please notice that here you may choose step one or two but not both as it would be quite un productive. After you complete one of the two first steps then go for the next steps.
+En cualquier caso siempre puedes instalar la versión estándar de R. Por favor no ignores que entre los pasos uno o dos, debes escoger uno solo, el que creas que es más conveniente para ti.
 
-## Step 1: Install Microsoft R Open
+## Paso 1: Instalar Microsoft R Open
 
-To install R on Windows just download it from [MRO Downloads](https://mran.microsoft.com/download) and then execute the installer. The setup is straightforward, just hit 'next' when required and be sure you mark the MKL option.
+Para instalar R en Windows se puede obtener de [descargas de MRO](https://mran.microsoft.com/download) y luego ejecutar el instalador. La configuración es directa, basta con presional "siguiente" todas las veces que el programa lo pida y asegurarse de marcar la opción MKL.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=130" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 2: Install CRAN R
+## Paso 2: Instalar R estándar
 
-As an alternative to step one you can install from CRAN (The Comprehensive R Archive Network). Just visit [CRAN downloads](https://cran.r-project.org/) and get the last version.
+Como alternativa al paso uno, R estándar se puede bajar desde CRAN (La Red Exhaustiva de Archivo de R, del inglés *The Comprehensive R Archive Network*). Visita el sitio [descargas de CRAN](https://cran.r-project.org/) para obtener la última versión.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=225" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 3: Install RStudio
+## Paso 3: Instala RStudio
 
-To install RStudio just visit [RStudio Downloads](https://www.rstudio.com/products/rstudio/download/#download) and download the last version. The setup is straightforward and simple.
+Para instalar RStudio visita el sitio [descargas de RStudio](https://www.rstudio.com/products/rstudio/download/#download) y descarga la última versión.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=370" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Install the Tidyverse
+# Instala el Tidyverse
 
-Open RStudio. These steps are the same for any operating system.
+Abre RStudio. Los siguientes pasos son los mismos para cualquier sistema operativo.
 
-In RStudio bottom left panel you can type any valid command followed by enter and R will execute that command.
+En el panel inferior izquierdo de RStudio puedes escribir cualquier comando válido y R ejecutará dicho comando.
 
-Paste the next line in the bottom left panel:
+Pega el siguiente código en el panel inferior izquierdo:
 ```{r install-tidyverse, eval = F}
 install.packages("tidyverse", repos = 'https://cran.us.r-project.org')
 ```
-Then hit enter and you'll get a nice R setup ready to rock!
+Presiona enter y tendrás una configuración de R a punto.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=425" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Install More R Packages
+# Instalar más paquetes de R
 
-Beyond the Tidyverse are more useful packages.
+Aparte del Tidyverse existen otros paquetes muy útiles.
 
-Some of my daily use packages are:
+Algunos de los que uso a diario son:
 
 * `XML`: Read and create XML documents with R.
 * `jsonlite`: Read and create JSON data tables with R.
 * `httr`: A set of useful tools for working with http connections.
 * `rvest`: Very useful for web scraping.
 
-You might think that this is the way to install these packages:
+Quizá creas que este es el mejor modo de instalar varios paquetes:
 ```{r install-more-packages-1, eval = F}
 install.packages("XML", repos = 'https://cran.us.r-project.org')
 install.packages("jsonlite", repos = 'https://cran.us.r-project.org')
 etc...
 ```
 
-But there is a more convenient way:
+Pero existe un modo más eficiente de hacerlo:
 ```{r install-more-packages-2, eval = F}
 install.packages(c("XML", "jsonlite", "httr", "rvest"))
 ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=450" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Check that everything works
+# Verifica que todo funcione
 
-In RStudio go to File, then to New File and then click R Script. On the new blank script try to write this code:
+En RStudio dirígete a Archivo, luego Archivo Nuevo y luego click en Script de R. En el archivo en blanco que aparece, pega el siguiente código:
 
 ```{r plot, warning = F}
 library(ggplot2)
@@ -246,28 +239,27 @@ ggplot(airquality, aes(x = Day, y = Ozone)) +
   geom_point()
 ```
 
-What that code does is to load `ggplot2` and instruct it to use `airquality`, a dataset that comes with R, to plot Day versus Ozone. 
+Lo que el código hace es cargar `ggplot` e instruirle que use `airquality`, un conjunto de datos que viene con R, para graficar Día versus Ozono.
 
-We need to load the packages because if R fresh install would come with the more than 10,000 existing packages the download would be really large and loading all the package when opening RStudio would be extremely slow.
+Necesitamos cargar paquetes porque si la instalación fresca de R viniera con los más de 10.000 paquetes que existen, la descarga e instalación del software sería muy lenta y abrir RStudio sería más lento aún.
 
-To run your code select the lines and press ctrl + enter (or cmd + enter if you have a Mac). If everything worked the plot should appear on the bottom right panel.
+Para correr el código selecciona las líneas y presiona Control + Enter (o CMD + Enter en Mac). Si todo funcionó, aparecerá un gráfico en el panel inferior derecho.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=475" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# RStudio Aesthetics
+# Estética de RStudio
 
-I do recommend editing the colors to reduce eye strain. To edit the colors in RStudio go to Tools, then to Global Options, and finally to Appearance.
+Recomiendo cambiar los colores del programa para reducir la fatiga visual. Para cambiar los colores de RStudio debes ir a Herramientas, luego a Opciones Globales y finalmente a Apariencia.
 
-I personally like Cobalt theme with [Ubuntu Mono](https://fonts.google.com/specimen/Ubuntu+Mono) font provided I code all day long.
+Me gusta el tema Cobalto con la tipografía [Ubuntu Mono](https://fonts.google.com/specimen/Ubuntu+Mono) dado que escribo código todo el día.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=500" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Take the most out of this tutorial
+# Obtén el mayor provecho de este tutorial
 
-In the past I've uploaded tutorials and exercises to DataCamp. After the events revealed during the first week of April, I've decided to remove the videos from the platform and stop recommending to use their services.
+Anteriormente subí tutoriales y ejercicios a DataCamp. Luego de los eventos revelados la primera semana de Abril, he decidido quitar mis video de la plataforma y dejar de recomendar sus servicios.
 
-Here's a good recommendation from [Jesse Mostipak](https://twitter.com/kierisi):
+Aquí hay una lista de buenas recomendaciones que hizo [Jesse Mostipak](https://twitter.com/kierisi):
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">so you&#39;ve heard about DataCamp and want to leave the platform, but aren&#39;t sure where to go for your <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> learning. well friends, you can start here:<br><br>🌊 <a href="https://t.co/SOIXekQIYL">https://t.co/SOIXekQIYL</a><br>💻 <a href="https://t.co/jHS4SXhYQZ">https://t.co/jHS4SXhYQZ</a><br>📊 <a href="https://t.co/xhVR2IQYl7">https://t.co/xhVR2IQYl7</a><br>🦜 <a href="https://t.co/G442ZY0Ny8">https://t.co/G442ZY0Ny8</a></p>&mdash; Jesse Mostipak (@kierisi) <a href="https://twitter.com/kierisi/status/1114162997604311040?ref_src=twsrc%5Etfw">April 5, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
