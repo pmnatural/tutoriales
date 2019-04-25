@@ -1,11 +1,11 @@
-# ¿Cómo instalar R en Mac, Ubuntu y Windows?
+## ¿Cómo instalar R en Mac, Ubuntu y Windows?
 
 *2019-04-22*
 *Mauricio Vargas S. 帕夏*
 
 *Este tutorial es una traducción de una adaptación del original que escribí en mi blog en inglés. Los videos también fueron traducidos*
 
-# Motivación
+## Motivación
 
 Esta es una guía para usuarios principiantes pensada para ahorrarte un dolor de cabeza y tiempo valioso en caso de que necesites instalar R por tu cuenta.
 
@@ -13,7 +13,7 @@ Dado que hago clases, no me gusta gastar una hora de los talleres en instalar R.
 
 Lo que encontrarás aquí es una colección de línea de código que funcionan al momento de instalar R. Desde luego, intenté varias soluciones que no funcionaron y lo que presento acá es el resultado final.
 
-# R y RStudio
+## R y RStudio
 
 Esta configuración pretende instalar R y RStudio. Puedes imaginar la instalación de R como comprar un automóvil y RStudio como comprar un automóvil con todos los accesorios para una mejor experiencia de usuario.
 
@@ -21,7 +21,7 @@ Esta configuración pretende instalar R y RStudio. Puedes imaginar la instalaci�
 
 [RStudio](https://www.rstudio.com/) es un IDE (Entorno de Desarrollo Integrado, del inglés *Integrated Development Environment*) que facilita el uso de R y es más similar a SPSS o Stata. Incluye un editor de código, depurador y herramientas de visualización. Por favor úsenlo para mejorar su experiencia de usuario con R.
 
-# El Tidyverse
+## El Tidyverse
 
 El [Tidyverse](https://www.tidyverse.org/) provee un conjunto de paquetes que aumentan las capacidades de R y que comparten una misma filosofía de diseño.
 
@@ -31,13 +31,13 @@ Si deseas graficar usando R, El Tidyverse provee el paquete `ggplot2` para la cr
 
 Otra herramienta interesante del Tidyverse es `haven`, un paquete para importar/exportar datos usando los formatos de SPSS, Stata y SAS.
 
-# Instrucciones para usuarios de Mac
+## Instrucciones para usuarios de Mac
 
-## Instalar R y RStudio
+### Instalar R y RStudio
 
 Instalar R en Mac puede ser problemático. LO que he escuchado de mis estudiantes es que las dependencias de software pueden ser un gran problema al momento de instalar R, lo que también aplica a Python, Ruby y otras herramientas.
 
-¿Tiene que ser problemático? La opción más simple para instalar R en Mac es usaR [Homebrew](https://brew.sh/) que es un administrador de paquetes que hace todo en tu lugar si le pasas un comando como `brew install r`. Para instalar R de esta forma necesitas hacer lo siguiente:
+¿Tiene que ser problemático? La opción más simple para instalar R en Mac es usar [Homebrew](https://brew.sh/) que es un administrador de paquetes que hace todo en tu lugar si le pasas un comando como `brew install r`. Para instalar R de esta forma necesitas hacer lo siguiente:
 
 * Instalar las Herramientas de Línea de Comandos de XCode
 * Instalar Homebrew
@@ -49,7 +49,7 @@ Recomiendo instalar R con [OpenBLAS](http://www.openblas.net/). En palabras simp
 
 Entre los pasos tres o cuatro, debes escoger uno solo, el que creas que es más conveniente para ti. No ejecutes el paso tres y luego el cuatro o vas a perder tiempo dado que el paso cuatro reemplazará todo lo que hiciste en el paso tres.
 
-## Paso 1: Instalar las Herramientas de Línea de Comandos de XCode
+### Paso 1: Instalar las Herramientas de Línea de Comandos de XCode
 
 Compilar software en Mac requiere instalar [XCode CLT](https://developer.apple.com/download/more/). Dado que algunos pasos de esta instalación de R requieren compilación, no hay forma de evadir este paso.
 
@@ -59,9 +59,9 @@ xcode-select --install
 ```
 Presiona enter y espera un minuto. Si tu computador ya tiene este software instalado, verás un mensaje que dice que XCode CLT ya está instalado, en caso contrario comenzará a descargar e instalar el software.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM) en caso de dudas.
 
-## Paso 2: Instalar Homebrew
+### Paso 2: Instalar Homebrew
 
 Para instalar Homebrew pega el siguiente comando en la terminal:
 ```
@@ -73,16 +73,16 @@ Seguramente vas a querer configurar las rutas de Homebrew. Para hacerlo basta co
 
 Pega el siguiente código en la terminal:
 ```
-# Homebrew PATH
+## Homebrew PATH
 echo "export LC_ALL=es_ES.UTF-8" >> ~/.bash_profile
 echo "export LANG=es_ES.UTF-8" >> ~/.bash_profile
 echo "export PATH=/usr/local/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile
 ```
 Como ya habrás adivinado, debes presionar enter luego de pegar esto.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=20) en caso de dudas.
 
-## Paso 3: Instalar R sin OpenBLAS
+### Paso 3: Instalar R sin OpenBLAS
 
 Ya tenemos XCode CLT y Hombrew instalado. Ahora pega el siguiente código en la terminal:
 ```
@@ -91,9 +91,9 @@ echo 'Sys.setlocale(category="LC_ALL", locale = "en_US.UTF-8")' >> ~/.bash_profi
 ```
 Presiona enter y algo bueno sucederá.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=50" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=50) en caso de dudas.
 
-## Paso 4: Instalar R con OpenBLAS
+### Paso 4: Instalar R con OpenBLAS
 
 Este paso es muy similar al anterior. Pega el siguiente código en la terminal:
 ```
@@ -103,10 +103,9 @@ echo 'Sys.setlocale(category="LC_ALL", locale = "en_US.UTF-8")' >> ~/.bash_profi
 ```
 Presiona enter y algo bueno sucederá.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=50" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=50) en caso de dudas.
 
-## Paso 5: Instala RStudio
-
+### Paso 5: Instala RStudio
 
 Finalmente, pega el siguiente código en la terminal:
 ```
@@ -114,11 +113,11 @@ brew cask install rstudio
 ```
 Presiona enter y estarás listo.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=285" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=285) en caso de dudas.
 
-# Instrucciones para usuarios de Ubuntu
+## Instrucciones para usuarios de Ubuntu
 
-## Instalar R y RStudio
+### Instalar R y RStudio
 
 Recomiendo instalar R con [OpenBLAS](http://www.openblas.net/). En palabras simples, OpenBLAS acelera algunas operaciones y quiero que seas un usuario feliz. Puedes ignorar esta recomendación si vas a trabajar con conjuntos de datos relativamente pequeños.
 
@@ -126,29 +125,29 @@ Instalar R en Ubuntu es simple, ¡sorprendentemente simple! Podemos instalar R, 
 
 Entre los pasos uno o dos, debes escoger uno solo, el que creas que es más conveniente para ti. No ejecutes el paso uno y luego el dos o vas a perder tiempo dado que el paso dos reemplazará todo lo que hiciste en el paso uno
 
-## Paso 1: Instalar R sin OpenBLAS
+### Paso 1: Instalar R sin OpenBLAS
 
 Abre la terminal y pega el siguiente código:
 ```
-# R with OpenBLAS
+# R sin OpenBLAS
 sudo apt-get install r-base
 ```
 Luego presiona enter.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=90) en caso de dudas.
 
-## Paso 2: Instalar R con OpenBLAS
+### Paso 2: Instalar R con OpenBLAS
 
 Abre la terminal y pega el siguiente código:
 ```
-# R with OpenBLAS
+# R con OpenBLAS
 sudo apt-get install libopenblas-base r-base
 ```
 Luego presiona enter.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=90) en caso de dudas.
 
-## Paso 3: Instalar RStudio
+### Paso 3: Instalar RStudio
 
 No cierres la terminal y pega el siguiente código:
 ```
@@ -159,37 +158,37 @@ sudo gdebi rstudio-xenial-1.1.379-amd64.deb
 ```
 Luego presiona enter.
 
-Otra alternativa es visitar el [sitio web de RStudio](https://www.rstudio.com) para descargar el software a instalarlo desde el escritorio con un instalador gráfico.
+Otra alternativa es visitar el sitio web de [RStudio](https://www.rstudio.com) para descargar el software a instalarlo desde el escritorio con un instalador gráfico.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=320" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=320) en caso de dudas.
 
-# Instrucciones para usuarios de Windows
+## Instrucciones para usuarios de Windows
 
-## Instalar R y RStudio
+### Instalar R y RStudio
 
-Mi experiencia con Windows y R cambió de trágica a magnífica. Lo que cambió esa experiencia fue [Microsoft R Open](https://mran.microsoft.com/open) que es una versión de R que incluye [Intel MKL](https://software.intel.com/en-us/mkl), una librería numérica que aumenta la velocidad de algunas operaciones y que viene activada por defecto,
+Mi experiencia con Windows y R cambió de trágica a magnífica. Lo que cambió esa experiencia fue [Microsoft R Open](https://mran.microsoft.com/open), una versión de R que incluye [Intel MKL](https://software.intel.com/en-us/mkl), una librería numérica que aumenta la velocidad de algunas operaciones y que viene activada por defecto.
 
 En cualquier caso siempre puedes instalar la versión estándar de R. Por favor no ignores que entre los pasos uno o dos, debes escoger uno solo, el que creas que es más conveniente para ti.
 
-## Paso 1: Instalar Microsoft R Open
+### Paso 1: Instalar Microsoft R Open
 
-Para instalar R en Windows se puede obtener de [descargas de MRO](https://mran.microsoft.com/download) y luego ejecutar el instalador. La configuración es directa, basta con presional "siguiente" todas las veces que el programa lo pida y asegurarse de marcar la opción MKL.
+Para instalar R en Windows se puede obtener del sitio web de [MRO](https://mran.microsoft.com/download) y luego ejecutar el instalador. La configuración es directa, basta con presional "siguiente" todas las veces que el programa lo pida y asegurarse de marcar la opción MKL.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=130" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=130) en caso de dudas.
 
-## Paso 2: Instalar R estándar
+### Paso 2: Instalar R estándar
 
-Como alternativa al paso uno, R estándar se puede bajar desde CRAN (La Red Exhaustiva de Archivo de R, del inglés *The Comprehensive R Archive Network*). Visita el sitio [descargas de CRAN](https://cran.r-project.org/) para obtener la última versión.
+Como alternativa al paso uno, R estándar se puede bajar desde CRAN (La Red Exhaustiva de Archivo de R, del inglés *The Comprehensive R Archive Network*). Visita el sitio web de [CRAN](https://cran.r-project.org/) para obtener la última versión.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=225" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=225) en caso de dudas.
 
-## Paso 3: Instala RStudio
+### Paso 3: Instala RStudio
 
-Para instalar RStudio visita el sitio [descargas de RStudio](https://www.rstudio.com/products/rstudio/download/#download) y descarga la última versión.
+Para instalar RStudio visita el sitio web de [RStudio](https://www.rstudio.com/products/rstudio/download/#download) y descarga la última versión.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=370" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=370) en caso de dudas.
 
-# Instala el Tidyverse
+## Instala el Tidyverse
 
 Abre RStudio. Los siguientes pasos son los mismos para cualquier sistema operativo.
 
@@ -201,9 +200,9 @@ install.packages("tidyverse", repos = 'https://cran.us.r-project.org')
 ```
 Presiona enter y tendrás una configuración de R a punto.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=425" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=425) en caso de dudas.
 
-# Instalar más paquetes de R
+## Instalar más paquetes de R
 
 Aparte del Tidyverse existen otros paquetes muy útiles.
 
@@ -226,9 +225,9 @@ Pero existe un modo más eficiente de hacerlo:
 install.packages(c("XML", "jsonlite", "httr", "rvest"))
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=450" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=450) en caso de dudas.
 
-# Verifica que todo funcione
+## Verifica que todo funcione
 
 En RStudio dirígete a Archivo, luego Archivo Nuevo y luego click en Script de R. En el archivo en blanco que aparece, pega el siguiente código:
 
@@ -245,17 +244,17 @@ Necesitamos cargar paquetes porque si la instalación fresca de R viniera con lo
 
 Para correr el código selecciona las líneas y presiona Control + Enter (o CMD + Enter en Mac). Si todo funcionó, aparecerá un gráfico en el panel inferior derecho.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=475" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=475) en caso de dudas.
 
-# Estética de RStudio
+## Estética de RStudio
 
 Recomiendo cambiar los colores del programa para reducir la fatiga visual. Para cambiar los colores de RStudio debes ir a Herramientas, luego a Opciones Globales y finalmente a Apariencia.
 
 Me gusta el tema Cobalto con la tipografía [Ubuntu Mono](https://fonts.google.com/specimen/Ubuntu+Mono) dado que escribo código todo el día.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TSQFUWP1v4g?start=500" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Consulta el siguiente [video](https://www.youtube.com/embed/ZNrmawbATtM?start=500) en caso de dudas.
 
-# Obtén el mayor provecho de este tutorial
+## Obtén el mayor provecho de este tutorial
 
 Anteriormente subí tutoriales y ejercicios a DataCamp. Luego de los eventos revelados la primera semana de Abril, he decidido quitar mis video de la plataforma y dejar de recomendar sus servicios.
 
